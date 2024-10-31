@@ -1,0 +1,279 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>game21.html</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<style type="text/css">
+<!--
+body {color: #000000; background-color: #ffffff; font-family: monospace}
+pre {color: #000000; background-color: #ffffff; font-family: monospace}
+table {color: #404040; background-color: #e9e8e2; font-family: monospace}
+.block-comment {color: #969696}
+.ST2 {color: #c0c0c0}
+.ST7 {background-color: #e3f2e1; font-family: monospace; font-weight: bold}
+.ST3 {color: #c0c0c0; background-color: #e3f2e1}
+.ST5 {background-color: #e3f2e1}
+.ST10 {color: #969696; background-color: #e3f2e1}
+.ST6 {color: #9f0d79; background-color: #e3f2e1}
+.ST4 {color: #336bdd; background-color: #e3f2e1}
+.ST0 {color: #628fb5; background-color: #f9f4e0}
+.tag {color: #336bdd}
+.ST9 {color: #ce54b8; background-color: #e3f2e1}
+.sgml-declaration {color: #628fb5}
+.ST1 {color: #287bde}
+.argument {color: #ce54b8}
+.highlight-caret-row {background-color: #f9f4e0}
+.value {color: #1e9347}
+.ST8 {color: #1e9347; background-color: #e3f2e1}
+.ST11 {color: #0000ff; background-color: #e3f2e1}
+-->
+</style>
+</head>
+<body>
+<table width="100%"><tr><td align="center">/Users/sydneyramgoolam/NetBeansProjects/Mp11js_ramgoolam/public_html/game21.html</td></tr></table>
+<pre>
+<span class="ST0">&lt;!DOCTYPE</span> <span class="ST0">html</span><span class="ST0">&gt;</span>
+<span class="block-comment">&lt;!--</span>
+<span class="block-comment">Click </span><span class="ST1">nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt</span><span class="block-comment"> to change this license</span>
+<span class="block-comment">Click </span><span class="ST1">nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html</span><span class="block-comment"> to edit this template</span>
+<span class="block-comment">--&gt;</span>
+
+
+<span class="sgml-declaration">&lt;!DOCTYPE</span> <span class="sgml-declaration">html</span><span class="sgml-declaration">&gt;</span>
+
+
+<span class="tag">&lt;</span><span class="tag">html</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;</span><span class="tag">head</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;</span><span class="tag">title</span><span class="tag">&gt;</span>Game 21<span class="tag">&lt;/</span><span class="tag">title</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;</span><span class="tag">meta</span> <span class="argument">charset</span><span class="argument">=</span><span class="value">&quot;UTF-8&quot;</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;</span><span class="tag">meta</span> <span class="argument">name</span><span class="argument">=</span><span class="value">&quot;viewport&quot;</span> <span class="argument">content</span><span class="argument">=</span><span class="value">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;</span><span class="tag">link</span> <span class="argument">rel</span><span class="argument">=</span><span class="value">&quot;stylesheet&quot;</span> <span class="argument">href</span><span class="argument">=</span><span class="value">&quot;21game.css&quot;</span><span class="tag">&gt;</span>
+
+        <span class="tag">&lt;</span><span class="tag">script</span><span class="tag">&gt;</span>
+            <span class="ST4">var</span> <span class="ST6">deck</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST5">]</span><span class="ST5">;</span>
+            <span class="ST4">var</span> <span class="ST6">dealerCards</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST5">]</span><span class="ST5">;</span>
+            <span class="ST4">var</span> <span class="ST6">playerCards</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST5">]</span><span class="ST5">;</span>
+
+            <span class="ST4">function</span> <span class="ST7">startGame</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST5">initializeDeck</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST5">shuffleDeck</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST5">dealInitialCards</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST5">displayCards</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">reset</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">disabled</span> <span class="ST5">=</span> <span class="ST4">false</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">cover-image</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">none</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">dealer-heading</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">block</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">player-heading</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">block</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">end-game</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">inline-block</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">initializeDeck</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST4">var</span> <span class="ST5">type</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST8">&#39;</span><span class="ST8">C</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">D</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">H</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">S</span><span class="ST8">&#39;</span><span class="ST5">]</span><span class="ST5">;</span>
+                <span class="ST4">var</span> <span class="ST5">values</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST8">&#39;</span><span class="ST8">A</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">2</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">3</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">4</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">5</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">6</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">7</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">8</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">9</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">10</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">J</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">Q</span><span class="ST8">&#39;</span><span class="ST5">,</span> <span class="ST8">&#39;</span><span class="ST8">K</span><span class="ST8">&#39;</span><span class="ST5">]</span><span class="ST5">;</span>
+                <span class="ST4">for</span> <span class="ST5">(</span><span class="ST4">var</span> <span class="ST5">i</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span> <span class="ST5">i</span> <span class="ST5">&lt;</span> <span class="ST5">type</span><span class="ST5">.</span><span class="ST5">length</span><span class="ST5">;</span> <span class="ST5">i</span><span class="ST5">++</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST4">for</span> <span class="ST5">(</span><span class="ST4">var</span> <span class="ST5">j</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span> <span class="ST5">j</span> <span class="ST5">&lt;</span> <span class="ST5">values</span><span class="ST5">.</span><span class="ST5">length</span><span class="ST5">;</span> <span class="ST5">j</span><span class="ST5">++</span><span class="ST5">)</span>
+                    <span class="ST5">{</span>
+                        <span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">push</span><span class="ST5">(</span><span class="ST5">values</span><span class="ST5">[</span><span class="ST5">j</span><span class="ST5">]</span> <span class="ST5">+</span> <span class="ST8">&#39;</span><span class="ST8">-</span><span class="ST8">&#39;</span> <span class="ST5">+</span> <span class="ST5">type</span><span class="ST5">[</span><span class="ST5">i</span><span class="ST5">]</span><span class="ST5">)</span><span class="ST5">;</span>
+                    <span class="ST5">}</span>
+                <span class="ST5">}</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">shuffleDeck</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST4">for</span> <span class="ST5">(</span><span class="ST4">var</span> <span class="ST5">i</span> <span class="ST5">=</span> <span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">length</span> <span class="ST5">-</span> <span class="ST5">1</span><span class="ST5">;</span> <span class="ST5">i</span> <span class="ST5">&gt;</span> <span class="ST5">0</span><span class="ST5">;</span> <span class="ST5">i</span><span class="ST5">--</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST4">var</span> <span class="ST5">j</span> <span class="ST5">=</span> <span class="ST6">Math</span><span class="ST5">.</span><span class="ST5">floor</span><span class="ST5">(</span><span class="ST6">Math</span><span class="ST5">.</span><span class="ST5">random</span><span class="ST5">(</span><span class="ST5">)</span> <span class="ST5">*</span> <span class="ST5">(</span><span class="ST5">i</span> <span class="ST5">+</span> <span class="ST5">1</span><span class="ST5">)</span><span class="ST5">)</span><span class="ST5">;</span>
+                    <span class="ST4">var</span> <span class="ST5">temp</span> <span class="ST5">=</span> <span class="ST6">deck</span><span class="ST5">[</span><span class="ST5">i</span><span class="ST5">]</span><span class="ST5">;</span>
+                    <span class="ST6">deck</span><span class="ST5">[</span><span class="ST5">i</span><span class="ST5">]</span> <span class="ST5">=</span> <span class="ST6">deck</span><span class="ST5">[</span><span class="ST5">j</span><span class="ST5">]</span><span class="ST5">;</span>
+                    <span class="ST6">deck</span><span class="ST5">[</span><span class="ST5">j</span><span class="ST5">]</span> <span class="ST5">=</span> <span class="ST5">temp</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">dealInitialCards</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST6">dealerCards</span><span class="ST5">.</span><span class="ST5">push</span><span class="ST5">(</span><span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">pop</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST6">dealerCards</span><span class="ST5">.</span><span class="ST5">push</span><span class="ST5">(</span><span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">pop</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST6">playerCards</span><span class="ST5">.</span><span class="ST5">push</span><span class="ST5">(</span><span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">pop</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST6">playerCards</span><span class="ST5">.</span><span class="ST5">push</span><span class="ST5">(</span><span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">pop</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">)</span><span class="ST5">;</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">displayCards</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST4">var</span> <span class="ST5">dealerCardsHTML</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST4">var</span> <span class="ST5">playerCardsHTML</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+
+                <span class="ST4">for</span> <span class="ST5">(</span><span class="ST4">var</span> <span class="ST5">i</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span> <span class="ST5">i</span> <span class="ST5">&lt;</span> <span class="ST6">dealerCards</span><span class="ST5">.</span><span class="ST5">length</span><span class="ST5">;</span> <span class="ST5">i</span><span class="ST5">++</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">i</span> <span class="ST5">===</span> <span class="ST5">0</span><span class="ST5">)</span>
+                    <span class="ST5">{</span>
+                        <span class="ST5">dealerCardsHTML</span> <span class="ST5">+=</span> <span class="ST8">&#39;</span><span class="ST8">&lt;div class=&quot;card&quot;&gt;&lt;img src=&quot;./cards/BACK.png&quot;&gt;&lt;/div&gt;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                    <span class="ST5">}</span>
+                    <span class="ST4">else</span>
+                    <span class="ST5">{</span>
+                        <span class="ST5">dealerCardsHTML</span> <span class="ST5">+=</span> <span class="ST8">&#39;</span><span class="ST8">&lt;div class=&quot;card&quot;&gt;&lt;img src=&quot;./cards/</span><span class="ST8">&#39;</span> <span class="ST5">+</span> <span class="ST6">dealerCards</span><span class="ST5">[</span><span class="ST5">i</span><span class="ST5">]</span> <span class="ST5">+</span> <span class="ST8">&#39;</span><span class="ST8">.png&quot;&gt;&lt;/div&gt;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                    <span class="ST5">}</span>
+                <span class="ST5">}</span>
+
+                <span class="ST4">for</span> <span class="ST5">(</span><span class="ST4">var</span> <span class="ST5">j</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span> <span class="ST5">j</span> <span class="ST5">&lt;</span> <span class="ST6">playerCards</span><span class="ST5">.</span><span class="ST5">length</span><span class="ST5">;</span> <span class="ST5">j</span><span class="ST5">++</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">playerCardsHTML</span> <span class="ST5">+=</span> <span class="ST8">&#39;</span><span class="ST8">&lt;div class=&quot;card&quot;&gt;&lt;img src=&quot;./cards/</span><span class="ST8">&#39;</span> <span class="ST5">+</span> <span class="ST6">playerCards</span><span class="ST5">[</span><span class="ST5">j</span><span class="ST5">]</span> <span class="ST5">+</span> <span class="ST8">&#39;</span><span class="ST8">.png&quot;&gt;&lt;/div&gt;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">dealer-cards</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">innerHTML</span> <span class="ST5">=</span> <span class="ST5">dealerCardsHTML</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">player-cards</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">innerHTML</span> <span class="ST5">=</span> <span class="ST5">playerCardsHTML</span><span class="ST5">;</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">drawCard</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST4">if</span> <span class="ST5">(</span><span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">length</span> <span class="ST5">===</span> <span class="ST5">0</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">alert</span><span class="ST5">(</span><span class="ST8">&quot;</span><span class="ST8">No more cards in the deck!</span><span class="ST8">&quot;</span><span class="ST5">)</span><span class="ST5">;</span>
+                    <span class="ST4">return</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+
+                <span class="ST10">// draws a card for the player</span>
+                <span class="ST6">playerCards</span><span class="ST5">.</span><span class="ST5">push</span><span class="ST5">(</span><span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">pop</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">)</span><span class="ST5">;</span>
+
+                <span class="ST10">// this cehcks if the player&#39;s sum is 21 or greater</span>
+                <span class="ST4">var</span> <span class="ST5">playerSum</span> <span class="ST5">=</span> <span class="ST5">calculateSum</span><span class="ST5">(</span><span class="ST6">playerCards</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">playerSum</span> <span class="ST5">&gt;=</span> <span class="ST5">21</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">endGame</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+                    <span class="ST4">return</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+
+                <span class="ST10">// allows the dealer to keep drawing cards until their sum is 17 or higher</span>
+                <span class="ST4">var</span> <span class="ST5">dealerSum</span> <span class="ST5">=</span> <span class="ST5">calculateSum</span><span class="ST5">(</span><span class="ST6">dealerCards</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST4">while</span> <span class="ST5">(</span><span class="ST5">dealerSum</span> <span class="ST5">&lt;</span> <span class="ST5">17</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST6">dealerCards</span><span class="ST5">.</span><span class="ST5">push</span><span class="ST5">(</span><span class="ST6">deck</span><span class="ST5">.</span><span class="ST5">pop</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">)</span><span class="ST5">;</span>
+                    <span class="ST5">dealerSum</span> <span class="ST5">=</span> <span class="ST5">calculateSum</span><span class="ST5">(</span><span class="ST6">dealerCards</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+
+                <span class="ST5">displayCards</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+
+                <span class="ST10">//this checks if the dealer&#39;s sum is over 21</span>
+                <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">dealerSum</span> <span class="ST5">&gt;=</span> <span class="ST5">21</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">endGame</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">calculateSum</span><span class="ST5">(</span><span class="ST5">cards</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST4">var</span> <span class="ST5">sum</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span>
+                <span class="ST4">var</span> <span class="ST5">aceCount</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span>
+
+                <span class="ST4">for</span> <span class="ST5">(</span><span class="ST4">var</span> <span class="ST5">i</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span> <span class="ST5">i</span> <span class="ST5">&lt;</span> <span class="ST5">cards</span><span class="ST5">.</span><span class="ST5">length</span><span class="ST5">;</span> <span class="ST5">i</span><span class="ST5">++</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST4">var</span> <span class="ST5">value</span> <span class="ST5">=</span> <span class="ST5">cards</span><span class="ST5">[</span><span class="ST5">i</span><span class="ST5">]</span><span class="ST5">.</span><span class="ST5">split</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">-</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">[</span><span class="ST5">0</span><span class="ST5">]</span><span class="ST5">;</span>
+                    <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">isNaN</span><span class="ST5">(</span><span class="ST5">value</span><span class="ST5">)</span><span class="ST5">)</span>
+                    <span class="ST5">{</span>
+                        <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">value</span> <span class="ST5">===</span> <span class="ST8">&#39;</span><span class="ST8">A</span><span class="ST8">&#39;</span><span class="ST5">)</span>
+                        <span class="ST5">{</span>
+                            <span class="ST5">aceCount</span><span class="ST5">++</span><span class="ST5">;</span>
+                            <span class="ST5">sum</span> <span class="ST5">+=</span> <span class="ST5">11</span><span class="ST5">;</span>
+                        <span class="ST5">}</span> 
+                        <span class="ST4">else</span>
+                        <span class="ST5">{</span>
+                            <span class="ST5">sum</span> <span class="ST5">+=</span> <span class="ST5">10</span><span class="ST5">;</span>
+                        <span class="ST5">}</span>
+                    <span class="ST5">}</span> 
+                    <span class="ST4">else</span> 
+                    <span class="ST5">{</span>
+                        <span class="ST5">sum</span> <span class="ST5">+=</span> <span class="ST5">parseInt</span><span class="ST5">(</span><span class="ST5">value</span><span class="ST5">)</span><span class="ST5">;</span>
+                    <span class="ST5">}</span>
+                <span class="ST5">}</span>
+
+                <span class="ST4">while</span> <span class="ST5">(</span><span class="ST5">aceCount</span> <span class="ST5">&gt;</span> <span class="ST5">0</span> <span class="ST5">&amp;&amp;</span> <span class="ST5">sum</span> <span class="ST5">&gt;</span> <span class="ST5">21</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">sum</span> <span class="ST5">-=</span> <span class="ST5">10</span><span class="ST5">;</span>
+                    <span class="ST5">aceCount</span><span class="ST5">--</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+
+                <span class="ST4">return</span> <span class="ST5">sum</span><span class="ST5">;</span>
+            <span class="ST5">}</span>
+            
+            <span class="ST4">function</span> <span class="ST7">endGame</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST4">var</span> <span class="ST5">dealerSum</span> <span class="ST5">=</span> <span class="ST5">calculateSum</span><span class="ST5">(</span><span class="ST6">dealerCards</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST4">var</span> <span class="ST5">playerSum</span> <span class="ST5">=</span> <span class="ST5">calculateSum</span><span class="ST5">(</span><span class="ST6">playerCards</span><span class="ST5">)</span><span class="ST5">;</span>
+
+                <span class="ST4">var</span> <span class="ST5">dealerCardsHTML</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST4">for</span> <span class="ST5">(</span><span class="ST4">var</span> <span class="ST5">i</span> <span class="ST5">=</span> <span class="ST5">0</span><span class="ST5">;</span> <span class="ST5">i</span> <span class="ST5">&lt;</span> <span class="ST6">dealerCards</span><span class="ST5">.</span><span class="ST5">length</span><span class="ST5">;</span> <span class="ST5">i</span><span class="ST5">++</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">dealerCardsHTML</span> <span class="ST5">+=</span> <span class="ST8">&#39;</span><span class="ST8">&lt;div class=&quot;card&quot;&gt;&lt;img src=&quot;./cards/</span><span class="ST8">&#39;</span> <span class="ST5">+</span> <span class="ST6">dealerCards</span><span class="ST5">[</span><span class="ST5">i</span><span class="ST5">]</span> <span class="ST5">+</span> <span class="ST8">&#39;</span><span class="ST8">.png&quot;&gt;&lt;/div&gt;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">dealer-cards</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">innerHTML</span> <span class="ST5">=</span> <span class="ST5">dealerCardsHTML</span><span class="ST5">;</span>
+
+                <span class="ST4">var</span> <span class="ST5">resultMessage</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">playerSum</span> <span class="ST5">&gt;</span> <span class="ST5">21</span> <span class="ST5">||</span> <span class="ST5">(</span><span class="ST5">dealerSum</span> <span class="ST5">&lt;=</span> <span class="ST5">21</span> <span class="ST5">&amp;&amp;</span> <span class="ST5">dealerSum</span> <span class="ST5">&gt;</span> <span class="ST5">playerSum</span><span class="ST5">)</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">resultMessage</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">Dealer wins!</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST5">}</span> 
+                <span class="ST4">else</span> <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">dealerSum</span> <span class="ST5">&gt;</span> <span class="ST5">21</span> <span class="ST5">||</span> <span class="ST5">playerSum</span> <span class="ST5">&gt;</span> <span class="ST5">dealerSum</span><span class="ST5">)</span> 
+                <span class="ST5">{</span>
+                    <span class="ST5">resultMessage</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">Player wins!</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST5">}</span> 
+                <span class="ST4">else</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">resultMessage</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">It\&#39;s a tie!</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+                <span class="ST5">alert</span><span class="ST5">(</span><span class="ST5">resultMessage</span><span class="ST5">)</span><span class="ST5">;</span>
+
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">reset</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">disabled</span> <span class="ST5">=</span> <span class="ST4">false</span><span class="ST5">;</span>
+
+                <span class="ST10">// this checks if the game has ended before drawing another card</span>
+                <span class="ST4">if</span> <span class="ST5">(</span><span class="ST5">dealerSum</span> <span class="ST5">&lt;</span> <span class="ST5">17</span><span class="ST5">)</span>
+                <span class="ST5">{</span>
+                    <span class="ST5">drawCard</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+                <span class="ST5">}</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">endGameButton</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST5">endGame</span><span class="ST5">(</span><span class="ST5">)</span><span class="ST5">;</span>
+            <span class="ST5">}</span>
+
+            <span class="ST4">function</span> <span class="ST7">resetGame</span><span class="ST5">(</span><span class="ST5">)</span>
+            <span class="ST5">{</span>
+                <span class="ST6">deck</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST5">]</span><span class="ST5">;</span>
+                <span class="ST6">dealerCards</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST5">]</span><span class="ST5">;</span>
+                <span class="ST6">playerCards</span> <span class="ST5">=</span> <span class="ST5">[</span><span class="ST5">]</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">dealer-cards</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">innerHTML</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">player-cards</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">innerHTML</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">reset</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST9">disabled</span> <span class="ST5">=</span> <span class="ST4">true</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">cover-image</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">flex</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">dealer-heading</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">none</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">player-heading</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">none</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+                <span class="ST6">document</span><span class="ST5">.</span><span class="ST5">getElementById</span><span class="ST5">(</span><span class="ST8">&#39;</span><span class="ST8">end-game</span><span class="ST8">&#39;</span><span class="ST5">)</span><span class="ST5">.</span><span class="ST5">style</span><span class="ST5">.</span><span class="ST9">display</span> <span class="ST5">=</span> <span class="ST8">&#39;</span><span class="ST8">none</span><span class="ST8">&#39;</span><span class="ST5">;</span>
+
+            <span class="ST5">}</span>
+        <span class="tag">&lt;/</span><span class="tag">script</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/</span><span class="tag">head</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;</span><span class="tag">body</span><span class="tag">&gt;</span>
+         
+        <span class="tag">&lt;</span><span class="tag">div</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;container&quot;</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;</span><span class="tag">div</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;content&quot;</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">h1</span><span class="tag">&gt;</span>Welcome to the game <span class="tag">&lt;</span><span class="tag">br</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">h1</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">h2</span><span class="tag">&gt;</span>Play 21!<span class="tag">&lt;/</span><span class="tag">h2</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">h2</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;dealer-heading&quot;</span> <span class="argument">style</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST11">display</span><span class="ST5">:</span> <span class="ST5">none</span><span class="ST5">;</span><span class="value">&quot;</span><span class="tag">&gt;</span>Dealer: <span class="tag">&lt;</span><span class="tag">span</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;dealer-sum&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">span</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">h2</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">div</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;dealer-cards&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">div</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">h2</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;player-heading&quot;</span> <span class="argument">style</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST11">display</span><span class="ST5">:</span> <span class="ST5">none</span><span class="ST5">;</span><span class="value">&quot;</span><span class="tag">&gt;</span>You: <span class="tag">&lt;</span><span class="tag">span</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;dealer-sum&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">span</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">h2</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">div</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;player-cards&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">div</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">div</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;cover-image&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;</span><span class="tag">img</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;cover-image&quot;</span> <span class="argument">src</span><span class="argument">=</span><span class="value">&quot;cover.jpg&quot;</span> <span class="argument">alt</span><span class="argument">=</span><span class="value">&quot;alt&quot;</span><span class="tag">/&gt;</span><span class="tag">&lt;/</span><span class="tag">div</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">br</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;start&quot;</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST5">startGame</span><span class="ST5">(</span><span class="ST5">)</span><span class="value">&quot;</span><span class="tag">&gt;</span>Start Game<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;draw-again&quot;</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST5">drawCard</span><span class="ST5">(</span><span class="ST5">)</span><span class="value">&quot;</span><span class="tag">&gt;</span>Draw Again<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;end-game&quot;</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST5">endGameButton</span><span class="ST5">(</span><span class="ST5">)</span><span class="value">&quot;</span> <span class="argument">style</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST11">display</span><span class="ST5">:</span> <span class="ST5">none</span><span class="ST5">;</span><span class="value">&quot;</span><span class="tag">&gt;</span>End Game<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">button</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;reset&quot;</span> <span class="argument">onclick</span><span class="argument">=</span><span class="value">&quot;</span><span class="ST5">resetGame</span><span class="ST5">(</span><span class="ST5">)</span><span class="value">&quot;</span> <span class="argument">disabled</span><span class="tag">&gt;</span>Reset Game<span class="tag">&lt;/</span><span class="tag">button</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">p</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;message&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">p</span><span class="tag">&gt;</span>
+                <span class="tag">&lt;</span><span class="tag">p</span> <span class="argument">id</span><span class="argument">=</span><span class="value">&quot;result&quot;</span><span class="tag">&gt;</span><span class="tag">&lt;/</span><span class="tag">p</span><span class="tag">&gt;</span>
+            <span class="tag">&lt;/</span><span class="tag">div</span><span class="tag">&gt;</span>
+        <span class="tag">&lt;/</span><span class="tag">div</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;/</span><span class="tag">body</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/</span><span class="tag">html</span><span class="tag">&gt;</span>
+</pre></body>
+</html>
